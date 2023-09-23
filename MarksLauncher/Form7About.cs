@@ -25,5 +25,43 @@ namespace MarksLaunchMenu
         {
             Close();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //try
+            //{
+            //    linkLabel1.LinkVisited = true;
+            //    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            //    {
+            //        FileName = "https://www.iconfinder.com/iconsets/arrows-and-universal-actions-icon-set",
+            //        UseShellExecute = true
+            //    });
+            //}
+            //catch (Exception)
+            //{
+            //}
+            VisitLink("https://www.iconfinder.com/iconsets/arrows-and-universal-actions-icon-set");
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            VisitLink("https://www.iconfinder.com/iconsets/ionicons-outline-vol-2");
+        }
+
+        private void VisitLink(string link)
+        {
+            try
+            {
+                linkLabel1.LinkVisited = true;
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = link,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception)
+            {
+            }
+        }
     }
 }

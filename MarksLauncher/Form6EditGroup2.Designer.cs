@@ -165,7 +165,7 @@
             ClientSize = new System.Drawing.Size(1094, 595);
             Controls.Add(splitContainer1);
             Name = "Form6EditGroup2";
-            Text = "Form6EditGroup2";
+            Text = "Edit Groups";
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             splitContainer1.Panel2.PerformLayout();

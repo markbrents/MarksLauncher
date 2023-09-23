@@ -117,7 +117,7 @@
             Name = "Form5RenameGroup";
             ShowInTaskbar = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            Text = "Form5";
+            Text = "Rename Group";
             Shown += Form5_Shown;
             ResumeLayout(false);
             PerformLayout();

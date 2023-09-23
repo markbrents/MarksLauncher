@@ -41,6 +41,14 @@
             label6 = new System.Windows.Forms.Label();
             btnOK = new System.Windows.Forms.Button();
             lblVersion = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            linkLabel1 = new System.Windows.Forms.LinkLabel();
+            linkLabel2 = new System.Windows.Forms.LinkLabel();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label3
@@ -159,12 +167,78 @@
             lblVersion.TabIndex = 26;
             lblVersion.Text = "_";
             // 
+            // label7
+            // 
+            label7.BackColor = System.Drawing.Color.Black;
+            label7.Location = new System.Drawing.Point(27, 299);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(300, 5);
+            label7.TabIndex = 27;
+            label7.Text = "_";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(27, 316);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(35, 15);
+            label8.TabIndex = 28;
+            label8.Text = "Icons";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = MarksLauncher.Properties.Resources._1303884_cancel_close_cross_delete_exit_icon;
+            pictureBox1.Location = new System.Drawing.Point(52, 344);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(32, 32);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 29;
+            pictureBox1.TabStop = false;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new System.Drawing.Point(90, 354);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new System.Drawing.Size(106, 15);
+            linkLabel1.TabIndex = 30;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "By Natalia Jacquier";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
+            // linkLabel2
+            // 
+            linkLabel2.AutoSize = true;
+            linkLabel2.Location = new System.Drawing.Point(90, 405);
+            linkLabel2.Name = "linkLabel2";
+            linkLabel2.Size = new System.Drawing.Size(99, 15);
+            linkLabel2.TabIndex = 32;
+            linkLabel2.TabStop = true;
+            linkLabel2.Text = "By Ionicons Icons";
+            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = MarksLauncher.Properties.Resources._9035575_settings_outline_icon;
+            pictureBox2.Location = new System.Drawing.Point(52, 400);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(32, 32);
+            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 31;
+            pictureBox2.TabStop = false;
+            // 
             // Form7About
             // 
             AcceptButton = btnOK;
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(753, 450);
+            ClientSize = new System.Drawing.Size(753, 449);
+            Controls.Add(linkLabel2);
+            Controls.Add(pictureBox2);
+            Controls.Add(linkLabel1);
+            Controls.Add(pictureBox1);
+            Controls.Add(label8);
+            Controls.Add(label7);
             Controls.Add(lblVersion);
             Controls.Add(btnOK);
             Controls.Add(label6);
@@ -179,7 +253,9 @@
             Controls.Add(label3);
             Name = "Form7About";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            Text = "Form7About";
+            Text = "About";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -198,5 +274,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Label lblVersion;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
