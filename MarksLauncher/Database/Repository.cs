@@ -209,14 +209,15 @@ namespace MarksLaunchMenu.Database
             // Copy starter database 
             var resources = Assembly.GetExecutingAssembly().GetManifestResourceNames();
 
-            if (resources.Contains("MarksLaunchMenu.Database.starter.sqlite"))
+            var embeddedDatabaseName = "MarksLauncher.Database.starter.sqlite";
+            if (resources.Contains(embeddedDatabaseName))
             {
                 var outputFile = Path.GetTempFileName();
 
                 if (File.Exists(outputFile))
                     File.Delete(outputFile);
 
-                using var resourceStream = Assembly.GetEntryAssembly().GetManifestResourceStream("MarksLaunchMenu.Database.starter.sqlite");
+                using var resourceStream = Assembly.GetEntryAssembly().GetManifestResourceStream(embeddedDatabaseName);
                 using var outputStream = new FileStream(outputFile, FileMode.Create, FileAccess.Write);
                 resourceStream.CopyTo(outputStream);
 
