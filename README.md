@@ -4,7 +4,7 @@ Mark's Launcher is a program launcher for Windows that sits above your taskbar a
 ![Mark's Launcher Screenshot](MarksLauncherScreenshot.png "Mark's Launcher Screenshot")
 
 ## How it works 
-Mark's Launcher is a Windows Forms program written in C# (targets .NET 6.). It uses [AppBarHelper](https://github.com/tip2tail/t2tWinFormAppBarLib) to turn a form into an App Bar that sits at the bottom of the screen. 
+Mark's Launcher is a Windows Forms program written in C# (targets .NET 6.0). It uses [AppBarHelper](https://github.com/tip2tail/t2tWinFormAppBarLib) to turn a form into an App Bar that sits at the bottom of the screen. 
 
 It reads the list of groups and links from a SQLite database (MarksLauncer.db) that gets installed into the user's AppData/Local/MarksLauncher folder. 
 
