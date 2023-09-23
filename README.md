@@ -1,5 +1,5 @@
 # Marks Launcher
-Mark's Launcher is a program launcher for Windows that sits above your taskbar and allows you to orgainize your application shortcuts into groups, making it easier to find and run your programs. 
+Mark's Launcher is a program launcher for Windows that sits above your taskbar and allows you to orgainize your application shortcuts into groups, making it easier to find and run your programs:
 
 
 ## How it works 
@@ -10,4 +10,5 @@ It reads the list of groups and links from a SQLite database (MarksLauncer.db) t
 This data is used to create the group buttons you see along the bottom of your screen. Clicking on a group reveals the links in that group. 
 
 ## Known Issues
-The name. I couldn't really come up with a good one. I'm open to suggestions for a better one. 
++ When you exit the program, it doesn't free up the space at the bottom of the screen. 
++ The name. I couldn't really come up with a good one. I'm open to suggestions for a better one. 
