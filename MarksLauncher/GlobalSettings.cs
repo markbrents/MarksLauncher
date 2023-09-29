@@ -23,6 +23,7 @@ namespace MarksLaunchMenu
         public static string DatabaseDBFile = "";
         public static int GroupButtonWidth = 100;
         public static int GroupButtonHeight = 40;
+        public static int MaxGroupNameLength = 40; 
         public static string VersionString = "Version 1.0";
 
         public static string UserDataFolder

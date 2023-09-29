@@ -16,6 +16,9 @@ namespace MarksLaunchMenu
 {
     public partial class Form1Main : Form
     {
+        private ToolStripTextBox txtRenameGroup;
+        private ToolStripDropDownButton btnRename;
+
         public Form1Main()
         {
             InitializeComponent();
@@ -218,16 +221,54 @@ namespace MarksLaunchMenu
         private void RenameGroupHandler(object sender, EventArgs e)
         {
             var rename = (ToolStripMenuItem)sender;
-            var btn = (ToolStripDropDownButton)rename.Tag;
+            btnRename = (ToolStripDropDownButton)rename.Tag;
 
-            using var f = new Form5RenameGroup(btn.Text);
-            var result = f.ShowDialog(this);
+            txtRenameGroup = new ToolStripTextBox();
+            txtRenameGroup.Text = btnRename.Text;
+            txtRenameGroup.MaxLength = GlobalSettings.MaxGroupNameLength;
+            txtRenameGroup.KeyUp += HandleRenameTextboxKeyUp;
+            txtRenameGroup.LostFocus += HandleRenameTextboxLostFocus;
 
-            if (result == DialogResult.OK)
+            var i = tsLaunch.Items.IndexOf(btnRename);
+
+            txtRenameGroup.SelectAll();
+
+            tsLaunch.Items.Insert(i, txtRenameGroup);
+
+            this.ActiveControl = txtRenameGroup.Control;
+            btnRename.Width = 0;
+            //tsLaunch.Items.Add(txtRename);
+
+            //using var f = new Form5RenameGroup(btn.Text);
+            //var result = f.ShowDialog(this);
+
+            //if (result == DialogResult.OK)
+            //{
+            //    RenameGroup(btn, f.NewName);
+            //}
+
+        }
+
+        private void HandleRenameTextboxLostFocus(object sender, EventArgs e)
+        {
+            RenameGroupFromTextBox();
+        }
+
+        private void HandleRenameTextboxKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                RenameGroup(btn, f.NewName);
+                RenameGroupFromTextBox(); 
+                e.Handled = true;
             }
+        }
 
+        private void RenameGroupFromTextBox()
+        {
+            var newName = txtRenameGroup.Text;
+                RenameGroup(btnRename, newName);
+                //btnRename.Text = newName;
+                //btnRename.Width = GlobalSettings.GroupButtonWidth;
         }
 
         private void RenameGroup(ToolStripDropDownButton btn, string newName)
