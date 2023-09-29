@@ -1,5 +1,5 @@
 # Marks Launcher
-Mark's Launcher is a program launcher for Windows that sits above your taskbar and allows you to orgainize your application shortcuts into groups, making it easier to find and run your programs:
+Mark's Launcher is a program launcher for Windows that sits above your taskbar and allows you to organize your application shortcuts into groups, making it easier to find and run your programs:
 
 ![Mark's Launcher Screenshot](MarksLauncherScreenshot.png "Mark's Launcher Screenshot")
 
