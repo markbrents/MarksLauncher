@@ -52,7 +52,7 @@ namespace MarksLaunchMenu.Database
             sql += "VALUES ";
             sql += "(@id, @name)";
 
-            var result = ExecuteSql(sql, new { id, name = groupName });
+            ExecuteSql(sql, new { id, name = groupName });
 
             return id;
 

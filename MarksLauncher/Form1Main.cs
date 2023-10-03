@@ -132,12 +132,14 @@ namespace MarksLaunchMenu
 
         private void HandleGroupAdderClicked(object sender, EventArgs e)
         {
-            using var f = new Form2AddGroup();
-            var result = f.ShowDialog(this);
+            //using var f = new Form2AddGroup();
+            //var result = f.ShowDialog(this);
 
-            Repository.AddGroup("New Group");
+            var newGroupId = Repository.AddGroup("New Group");
             LoadGroups();
-
+            
+            var btn = GetButtonByGroupId(newGroupId);
+            RenameGroupFromButton(btn); 
             //if (result == DialogResult.OK)
             //{
             //    Repository.AddGroup(f.GroupName);
@@ -221,10 +223,10 @@ namespace MarksLaunchMenu
 
         }
 
-        private void RenameGroupHandler(object sender, EventArgs e)
+
+        private void RenameGroupFromButton(ToolStripDropDownButton btn)
         {
-            var rename = (ToolStripMenuItem)sender;
-            btnRename = (ToolStripDropDownButton)rename.Tag;
+            btnRename = btn;
 
             txtRenameGroup = new ToolStripTextBox();
             txtRenameGroup.Text = btnRename.Text;
@@ -240,15 +242,39 @@ namespace MarksLaunchMenu
 
             this.ActiveControl = txtRenameGroup.Control;
             btnRename.Width = 0;
-            //tsLaunch.Items.Add(txtRename);
+        }
 
-            //using var f = new Form5RenameGroup(btn.Text);
-            //var result = f.ShowDialog(this);
+        private void RenameGroupHandler(object sender, EventArgs e)
+        {
+            var rename = (ToolStripMenuItem)sender;
+            btnRename = (ToolStripDropDownButton)rename.Tag;
 
-            //if (result == DialogResult.OK)
-            //{
-            //    RenameGroup(btn, f.NewName);
-            //}
+
+
+            RenameGroupFromButton (btnRename);
+            ////txtRenameGroup = new ToolStripTextBox();
+            ////txtRenameGroup.Text = btnRename.Text;
+            ////txtRenameGroup.MaxLength = GlobalSettings.MaxGroupNameLength;
+            ////txtRenameGroup.KeyUp += HandleRenameTextboxKeyUp;
+            ////txtRenameGroup.LostFocus += HandleRenameTextboxLostFocus;
+
+            ////var i = tsLaunch.Items.IndexOf(btnRename);
+
+            ////txtRenameGroup.SelectAll();
+
+            ////tsLaunch.Items.Insert(i, txtRenameGroup);
+
+            ////this.ActiveControl = txtRenameGroup.Control;
+            ////btnRename.Width = 0;
+            //////tsLaunch.Items.Add(txtRename);
+
+            //////using var f = new Form5RenameGroup(btn.Text);
+            //////var result = f.ShowDialog(this);
+
+            //////if (result == DialogResult.OK)
+            //////{
+            //////    RenameGroup(btn, f.NewName);
+            //////}
 
         }
 
@@ -280,6 +306,24 @@ namespace MarksLaunchMenu
 
             Repository.RenameGroup(group.GroupID, newName);
             LoadGroups();
+        }
+
+        private ToolStripDropDownButton GetButtonByGroupId(string groupId)
+        {
+            var buttons = tsLaunch.Items.OfType<ToolStripDropDownButton>();
+
+            foreach (var tsddb in buttons)
+            {
+                var grp = tsddb.Tag as GroupDto;
+                if (grp != null)
+                {
+                     if (grp.GroupID == groupId)
+                    {
+                        return tsddb;
+                    }
+                }
+            }
+            return null; 
         }
         #endregion
 
