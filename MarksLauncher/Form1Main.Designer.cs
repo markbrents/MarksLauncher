@@ -119,7 +119,7 @@ namespace MarksLaunchMenu
             // 
             settingsToolStripMenuItem.Image = MarksLauncher.Properties.Resources._9035575_settings_outline_icon;
             settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             settingsToolStripMenuItem.Text = "Settings";
             settingsToolStripMenuItem.Click += SettingsToolStripMenuItem_Click;
             // 
@@ -127,7 +127,7 @@ namespace MarksLaunchMenu
             // 
             exitToolStripMenuItem.Image = MarksLauncher.Properties.Resources._1303884_cancel_close_cross_delete_exit_icon;
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            exitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += ExitToolStripMenuItem_Click;
             // 
@@ -135,7 +135,7 @@ namespace MarksLaunchMenu
             // 
             aboutToolStripMenuItem.Image = MarksLauncher.Properties.Resources.i;
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             aboutToolStripMenuItem.Text = "About";
             aboutToolStripMenuItem.Click += AboutToolStripMenuItem_Click;
             // 
@@ -152,6 +152,7 @@ namespace MarksLaunchMenu
             Controls.Add(tsMenu);
             Controls.Add(tsLaunch);
             Name = "Form1Main";
+            ShowInTaskbar = false;
             Text = "Mark's Launcher";
             Load += Form1_Load;
             tsLaunch.ResumeLayout(false);

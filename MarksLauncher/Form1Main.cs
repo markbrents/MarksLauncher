@@ -135,11 +135,14 @@ namespace MarksLaunchMenu
             using var f = new Form2AddGroup();
             var result = f.ShowDialog(this);
 
-            if (result == DialogResult.OK)
-            {
-                Repository.AddGroup(f.GroupName);
-                LoadGroups();
-            }
+            Repository.AddGroup("New Group");
+            LoadGroups();
+
+            //if (result == DialogResult.OK)
+            //{
+            //    Repository.AddGroup(f.GroupName);
+            //    LoadGroups();
+            //}
 
         }
 
@@ -258,7 +261,7 @@ namespace MarksLaunchMenu
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RenameGroupFromTextBox(); 
+                RenameGroupFromTextBox();
                 e.Handled = true;
             }
         }
@@ -266,9 +269,9 @@ namespace MarksLaunchMenu
         private void RenameGroupFromTextBox()
         {
             var newName = txtRenameGroup.Text;
-                RenameGroup(btnRename, newName);
-                //btnRename.Text = newName;
-                //btnRename.Width = GlobalSettings.GroupButtonWidth;
+            RenameGroup(btnRename, newName);
+            //btnRename.Text = newName;
+            //btnRename.Width = GlobalSettings.GroupButtonWidth;
         }
 
         private void RenameGroup(ToolStripDropDownButton btn, string newName)

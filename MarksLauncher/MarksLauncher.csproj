@@ -4,10 +4,15 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>MarkLauncherLogo4.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Database\starter.sqlite" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="MarkLauncherLogo4.ico" />
   </ItemGroup>
 
   <ItemGroup>
