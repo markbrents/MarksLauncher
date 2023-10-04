@@ -92,13 +92,8 @@ namespace MarksLaunchMenu
 
             if (result == DialogResult.OK)
             {
-                Repository.UpdateLink(txtLinkId.Text, f.LinkName, f.LinkPath);
+                Repository.UpdateLink(txtLinkId.Text, f.LinkName, f.LinkPath, f.LinkArguments);
             }
-        }
-
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
         }
     }
 }

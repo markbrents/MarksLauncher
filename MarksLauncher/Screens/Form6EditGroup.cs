@@ -59,7 +59,7 @@ namespace MarksLaunchMenu
 
                 };
                 pnl.MoveableSelected += HandleMoveableSelected;
-                pnl.DeleteMoveable += HandleDeleteMoveable; 
+                pnl.DeleteMoveable += HandleDeleteMoveable;
 
                 flowLayoutPanel1.Controls.Add(pnl);
             }
@@ -135,12 +135,12 @@ namespace MarksLaunchMenu
             f.Header = "Edit Link";
             f.LinkPath = txtPath.Text;
             f.LinkName = txtName.Text;
-
+            f.LinkArguments = txtArguments.Text; 
             var result = f.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                Repository.UpdateLink(txtLinkId.Text, f.LinkName, f.LinkPath);
+                Repository.UpdateLink(txtLinkId.Text, f.LinkName, f.LinkPath, f.LinkArguments);
             }
 
         }

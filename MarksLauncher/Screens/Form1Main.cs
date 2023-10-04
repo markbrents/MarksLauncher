@@ -91,7 +91,7 @@ namespace MarksLaunchMenu
                     ImageScaling = ToolStripItemImageScaling.SizeToFit,
                     ForeColor = GlobalSettings.ForeColor,
                     BackColor = GlobalSettings.BackColor,
-                    Tag = link.LinkPath
+                    Tag = link
                 };
 
                 var linkPath = Environment.ExpandEnvironmentVariables(link.LinkPath);
@@ -132,19 +132,17 @@ namespace MarksLaunchMenu
 
         private void HandleGroupAdderClicked(object sender, EventArgs e)
         {
-            //using var f = new Form2AddGroup();
-            //var result = f.ShowDialog(this);
-
+            // Add new group to the database
             var newGroupId = Repository.AddGroup("New Group");
+
+            // Reload the groups
             LoadGroups();
             
+            // Find the button for the group we just added
             var btn = GetButtonByGroupId(newGroupId);
+
+            // Invoke the rename 
             RenameGroupFromButton(btn); 
-            //if (result == DialogResult.OK)
-            //{
-            //    Repository.AddGroup(f.GroupName);
-            //    LoadGroups();
-            //}
 
         }
 
@@ -252,29 +250,6 @@ namespace MarksLaunchMenu
 
 
             RenameGroupFromButton (btnRename);
-            ////txtRenameGroup = new ToolStripTextBox();
-            ////txtRenameGroup.Text = btnRename.Text;
-            ////txtRenameGroup.MaxLength = GlobalSettings.MaxGroupNameLength;
-            ////txtRenameGroup.KeyUp += HandleRenameTextboxKeyUp;
-            ////txtRenameGroup.LostFocus += HandleRenameTextboxLostFocus;
-
-            ////var i = tsLaunch.Items.IndexOf(btnRename);
-
-            ////txtRenameGroup.SelectAll();
-
-            ////tsLaunch.Items.Insert(i, txtRenameGroup);
-
-            ////this.ActiveControl = txtRenameGroup.Control;
-            ////btnRename.Width = 0;
-            //////tsLaunch.Items.Add(txtRename);
-
-            //////using var f = new Form5RenameGroup(btn.Text);
-            //////var result = f.ShowDialog(this);
-
-            //////if (result == DialogResult.OK)
-            //////{
-            //////    RenameGroup(btn, f.NewName);
-            //////}
 
         }
 
@@ -338,19 +313,27 @@ namespace MarksLaunchMenu
             if (result == DialogResult.OK)
             {
                 ToolStripMenuItem tsmi = (ToolStripMenuItem)sender;
-                Repository.AddAndGroupLink(tsmi.Tag.ToString(), f.LinkName, f.LinkPath);
+                Repository.AddAndGroupLink(tsmi.Tag.ToString(), f.LinkName, f.LinkPath, f.LinkArguments);
                 LoadGroups();
             }
         }
 
         private void HandleLinkClicked(object sender, EventArgs e)
         {
-            var lk = (ToolStripMenuItem)sender;
+            var tsmi = (ToolStripMenuItem)sender;
 
-            if (string.IsNullOrEmpty(lk.Tag.ToString()) == false)
+            var lk = tsmi.Tag as LinkDto; 
+
+            if (string.IsNullOrEmpty(lk.LinkPath.ToString()) == false)
             {
-                var expanded = Environment.ExpandEnvironmentVariables(lk.Tag.ToString());
-                Process.Start(expanded);
+                var expanded = Environment.ExpandEnvironmentVariables(lk.LinkPath.ToString());
+
+                var pi = new ProcessStartInfo(); 
+                pi.FileName = expanded; 
+                pi.UseShellExecute = false;
+                pi.Arguments = lk.LinkArguments;
+
+                Process.Start(pi);
             }
         }
 

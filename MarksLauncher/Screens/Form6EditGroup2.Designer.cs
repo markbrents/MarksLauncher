@@ -156,7 +156,6 @@
             splitContainer1.Size = new System.Drawing.Size(1094, 595);
             splitContainer1.SplitterDistance = 182;
             splitContainer1.TabIndex = 37;
-            splitContainer1.SplitterMoved += splitContainer1_SplitterMoved;
             // 
             // Form6EditGroup2
             // 

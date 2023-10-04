@@ -43,6 +43,8 @@
             label5 = new System.Windows.Forms.Label();
             btnEditLink = new System.Windows.Forms.Button();
             txtLinkId = new System.Windows.Forms.TextBox();
+            txtArguments = new System.Windows.Forms.TextBox();
+            label6 = new System.Windows.Forms.Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -143,7 +145,7 @@
             // txtName
             // 
             txtName.Enabled = false;
-            txtName.Location = new System.Drawing.Point(347, 214);
+            txtName.Location = new System.Drawing.Point(347, 267);
             txtName.MaxLength = 50;
             txtName.Name = "txtName";
             txtName.Size = new System.Drawing.Size(128, 23);
@@ -153,7 +155,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(256, 217);
+            label4.Location = new System.Drawing.Point(256, 270);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(85, 15);
             label4.TabIndex = 27;
@@ -180,7 +182,7 @@
             // 
             // btnEditLink
             // 
-            btnEditLink.Location = new System.Drawing.Point(557, 217);
+            btnEditLink.Location = new System.Drawing.Point(698, 266);
             btnEditLink.Name = "btnEditLink";
             btnEditLink.Size = new System.Drawing.Size(75, 23);
             btnEditLink.TabIndex = 28;
@@ -191,12 +193,31 @@
             // txtLinkId
             // 
             txtLinkId.Enabled = false;
-            txtLinkId.Location = new System.Drawing.Point(347, 256);
+            txtLinkId.Location = new System.Drawing.Point(347, 309);
             txtLinkId.MaxLength = 50;
             txtLinkId.Name = "txtLinkId";
             txtLinkId.Size = new System.Drawing.Size(128, 23);
             txtLinkId.TabIndex = 29;
             txtLinkId.Visible = false;
+            // 
+            // txtArguments
+            // 
+            txtArguments.Enabled = false;
+            txtArguments.Location = new System.Drawing.Point(347, 218);
+            txtArguments.MaxLength = 255;
+            txtArguments.Name = "txtArguments";
+            txtArguments.Size = new System.Drawing.Size(426, 23);
+            txtArguments.TabIndex = 30;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label6.Location = new System.Drawing.Point(269, 221);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(72, 15);
+            label6.TabIndex = 31;
+            label6.Text = "Arguments:";
             // 
             // Form6EditGroup
             // 
@@ -206,6 +227,8 @@
             BackColor = System.Drawing.SystemColors.ControlLight;
             CancelButton = btnCancel;
             ClientSize = new System.Drawing.Size(839, 583);
+            Controls.Add(txtArguments);
+            Controls.Add(label6);
             Controls.Add(txtLinkId);
             Controls.Add(btnEditLink);
             Controls.Add(btnBrowse);
@@ -246,5 +269,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnEditLink;
         private System.Windows.Forms.TextBox txtLinkId;
+        private System.Windows.Forms.TextBox txtArguments;
+        private System.Windows.Forms.Label label6;
     }
 }

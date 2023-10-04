@@ -27,6 +27,7 @@ namespace MarksLaunchMenu.Database
             sql += "SELECT gl.LinkID,               ";
             sql += "        l.LinkName,             ";
             sql += "        l.LinkPath,              ";
+            sql += "        l.LinkArguments,         ";
             sql += "       gl.[Order]              ";
             sql += "  FROM GroupLinks gl             ";
             sql += "  JOIN Links      l              ";
@@ -92,9 +93,9 @@ namespace MarksLaunchMenu.Database
         }
 
 
-        internal static void AddAndGroupLink(string groupId, string linkName, string linkPath)
+        internal static void AddAndGroupLink(string groupId, string linkName, string linkPath, string arguments)
         {
-            var linkId = AddLink(linkName, linkPath);
+            var linkId = AddLink(linkName, linkPath, arguments);
 
             AddLinkToGroup(groupId, linkId);
 
@@ -130,18 +131,18 @@ namespace MarksLaunchMenu.Database
             return number + 1;
         }
 
-        public static string AddLink(string linkName, string linkPath)
+        public static string AddLink(string linkName, string linkPath, string arguments)
         {
 
             var sql = "";
             sql += "Insert Into ";
-            sql += " Links (LinkId, LinkName, LinkPath)";
+            sql += " Links (LinkId, LinkName, LinkPath, LinkArguments)";
             sql += "VALUES  (";
-            sql += "@lid, @name, @path)";
+            sql += "@lid, @name, @path, @arg)";
 
             var linkId = Guid.NewGuid().ToString();
 
-            ExecuteSql(sql, new { lid = linkId, name = linkName, path = linkPath });
+            ExecuteSql(sql, new { lid = linkId, name = linkName, path = linkPath, arg = arguments });
 
             return linkId;
 
@@ -288,15 +289,16 @@ namespace MarksLaunchMenu.Database
 
         }
 
-        internal static void UpdateLink(string linkId, string name, string linkPath)
+        internal static void UpdateLink(string linkId, string name, string linkPath, string linkArguments)
         {
             var sql = "";
             sql += "UPDATE Links ";
-            sql += "   SET LinkName = @nme, ";
-            sql += "       LinkPath = @lp  ";
-            sql += " WHERE LinkId   = @lid";
+            sql += "   SET LinkName      = @nme,";
+            sql += "       LinkPath      = @lp, ";
+            sql += "       LinkArguments = @la  ";
+            sql += " WHERE LinkId        = @lid ";
 
-            ExecuteSql(sql, new { nme = name, lp = linkPath, lid = linkId });
+            ExecuteSql(sql, new { nme = name, lp = linkPath, lid = linkId, la = linkArguments });
         }
 
         internal static void DeleteLink(string linkId)

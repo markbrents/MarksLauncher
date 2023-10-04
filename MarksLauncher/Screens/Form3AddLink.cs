@@ -41,6 +41,11 @@ namespace MarksLaunchMenu
             set { btnAdd.Text = value; }
         }
 
+        public string LinkArguments
+        {
+            get { return txtArguments.Text; }
+            set { txtArguments.Text = value; } 
+        }
 
         public Form3AddLink()
         {
@@ -50,6 +55,10 @@ namespace MarksLaunchMenu
         private void BtnBrowse_Click(object sender, EventArgs e)
         {
             using var f = new OpenFileDialog();
+            if (Directory.Exists(txtPath.Text))
+            {
+                f.InitialDirectory = txtPath.Text;
+            }
             f.Multiselect = false;
             var result = f.ShowDialog(this);
 

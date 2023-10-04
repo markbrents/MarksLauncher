@@ -11,6 +11,7 @@ namespace MarksLaunchMenu.Dtos
         public string LinkID;
         public string LinkName;
         public string LinkPath;
+        public string LinkArguments;
         public int Order; 
     }
 }

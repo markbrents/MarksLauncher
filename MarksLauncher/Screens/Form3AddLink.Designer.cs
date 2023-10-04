@@ -37,11 +37,13 @@ namespace MarksLaunchMenu
             txtName = new System.Windows.Forms.TextBox();
             btnBrowse = new System.Windows.Forms.Button();
             label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            txtArguments = new System.Windows.Forms.TextBox();
             SuspendLayout();
             // 
             // btnCancel
             // 
-            btnCancel.Location = new System.Drawing.Point(518, 99);
+            btnCancel.Location = new System.Drawing.Point(537, 132);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new System.Drawing.Size(75, 28);
             btnCancel.TabIndex = 4;
@@ -51,7 +53,7 @@ namespace MarksLaunchMenu
             // 
             // btnAdd
             // 
-            btnAdd.Location = new System.Drawing.Point(428, 99);
+            btnAdd.Location = new System.Drawing.Point(447, 132);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new System.Drawing.Size(75, 28);
             btnAdd.TabIndex = 3;
@@ -81,7 +83,7 @@ namespace MarksLaunchMenu
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label2.Location = new System.Drawing.Point(33, 97);
+            label2.Location = new System.Drawing.Point(33, 129);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(85, 15);
             label2.TabIndex = 8;
@@ -89,7 +91,7 @@ namespace MarksLaunchMenu
             // 
             // txtName
             // 
-            txtName.Location = new System.Drawing.Point(124, 94);
+            txtName.Location = new System.Drawing.Point(124, 126);
             txtName.MaxLength = 50;
             txtName.Name = "txtName";
             txtName.Size = new System.Drawing.Size(128, 23);
@@ -117,6 +119,24 @@ namespace MarksLaunchMenu
             label3.Text = "     Add Links";
             label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label4.Location = new System.Drawing.Point(46, 90);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(72, 15);
+            label4.TabIndex = 12;
+            label4.Text = "Arguments:";
+            // 
+            // txtArguments
+            // 
+            txtArguments.Location = new System.Drawing.Point(124, 87);
+            txtArguments.MaxLength = 255;
+            txtArguments.Name = "txtArguments";
+            txtArguments.Size = new System.Drawing.Size(426, 23);
+            txtArguments.TabIndex = 13;
+            // 
             // Form3AddLink
             // 
             AcceptButton = btnAdd;
@@ -124,6 +144,8 @@ namespace MarksLaunchMenu
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             CancelButton = btnCancel;
             ClientSize = new System.Drawing.Size(645, 172);
+            Controls.Add(txtArguments);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(btnBrowse);
             Controls.Add(txtName);
@@ -151,5 +173,7 @@ namespace MarksLaunchMenu
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtArguments;
     }
 }
