@@ -1,4 +1,5 @@
-﻿using MarksLaunchMenu.Database;
+﻿using MarksLauncher.Screens;
+using MarksLaunchMenu.Database;
 using MarksLaunchMenu.Dtos;
 using System;
 using System.Collections.Generic;
@@ -405,14 +406,27 @@ namespace MarksLaunchMenu
 
         private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using var f = new Form4Settings();
+            using var f = new Form4Settings2();
+
+            f.ColorsUpdated += HandleColorsUpdated;
+            f.GroupsUpdated += HandleGroupsUpdated;
             var result = f.ShowDialog();
 
-            if (result == DialogResult.OK)
-            {
-                UpdateColors();
-            }
+            //if (result == DialogResult.OK)
+            //{
+            //    UpdateColors();
+            //}
 
+        }
+
+        private void HandleGroupsUpdated(object sender, EventArgs e)
+        {
+            LoadGroups(); 
+        }
+
+        private void HandleColorsUpdated(object sender, EventArgs e)
+        {
+            UpdateColors(); 
         }
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -522,6 +536,8 @@ namespace MarksLaunchMenu
         private void editGroupsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using var f = new Form6EditGroup2();
+
+                
             f.ShowDialog(this);
 
 
