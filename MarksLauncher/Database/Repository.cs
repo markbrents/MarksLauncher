@@ -119,7 +119,7 @@ namespace MarksLaunchMenu.Database
         {
 
             var sql = "";
-            sql += "select max([order]) as max "; 
+            sql += "select ifnull(max([order]), 0) as max "; 
             sql += "from GroupLinks "; 
             sql += "where GroupId = @gid"; 
             sql += "";
